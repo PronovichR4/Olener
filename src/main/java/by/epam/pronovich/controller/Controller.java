@@ -15,7 +15,7 @@ import java.io.IOException;
         "/productInfo", "/catalog", "/authentication", "/profile", "/review"})
 public class Controller extends HttpServlet {
 
-    private final CommandProvider commandProvider = new CommandProvider();
+    private static final CommandProvider commandProvider = CommandProvider.getINSTANCE();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

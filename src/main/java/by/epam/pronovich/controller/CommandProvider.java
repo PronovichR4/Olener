@@ -1,9 +1,9 @@
 package by.epam.pronovich.controller;
 
-
 import by.epam.pronovich.controller.command.Command;
 import by.epam.pronovich.controller.command.CommandName;
 import by.epam.pronovich.controller.command.impl.*;
+import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +12,12 @@ import static by.epam.pronovich.controller.command.CommandName.*;
 
 public class CommandProvider {
 
+    @Getter
+    private final static CommandProvider INSTANCE = new CommandProvider();
+
     private final Map<CommandName, Command> commandBox = new HashMap<>();
 
-    public CommandProvider() {
+    private CommandProvider() {
         commandBox.put(WRONG_REQUEST, new WrongRequest());
         commandBox.put(LOGOUT, new Logout());
         commandBox.put(USER_CHANGE_INFO_FORM, new UserChangeInfoForm());
@@ -46,7 +49,7 @@ public class CommandProvider {
         commandBox.put(BASKET, new BasketLoader());
         commandBox.put(ADMINPAGE, new AdminPageLoader());
     }
-    
+
     public Command getCommand(String name) {
         Command command = null;
         try {
