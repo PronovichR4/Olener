@@ -19,9 +19,11 @@ public class ProductsShower implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         String categoryId = req.getParameter("categoryId");
         req.setAttribute("categoryId", categoryId);
-        List<Product> products = ServiceProvider.getINSTANCE().getProductService().getByCategoryId(Integer.valueOf(categoryId));
-        products = sort(req, products);
-        req.setAttribute("products", products);
+        if(categoryId!=null){
+            List<Product> products = ServiceProvider.getINSTANCE().getProductService().getByCategoryId(Integer.valueOf(categoryId));
+            products = sort(req, products);
+            req.setAttribute("products", products);
+        }
         servletContext.getRequestDispatcher(JspPathUtil.get("product")).forward(req, resp);
     }
 
