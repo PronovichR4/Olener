@@ -46,8 +46,7 @@ public class CommandProvider {
         commandBox.put(BASKET, new BasketLoader());
         commandBox.put(ADMINPAGE, new AdminPageLoader());
     }
-
-
+    
     public Command getCommand(String name) {
         Command command = null;
         try {
