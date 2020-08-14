@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Objects;
 
-@WebFilter(servletNames = {"BasketServlet","ReviewServlet"})
+@WebFilter(urlPatterns = {"/basket","/profile","/review"})
 public class AuthenticationFilter implements Filter {
 
     @Override

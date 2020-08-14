@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ReviewForm implements Command {
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
+
+public class ReviewFormLoader implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        req.setAttribute("prod_id", req.getParameter("id"));
+        req.setAttribute("prod_id", req.getParameter(REQ_PARAM_ID));
         servletContext.getRequestDispatcher(JspPathUtil.get("add-review")).forward(req, resp);
     }
 }

@@ -12,12 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
+
 public class ReviewAdder implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        Customer cutomer = (Customer) req.getSession().getAttribute("customer");
-        String prod_id = req.getParameter("id");
+        Customer cutomer = (Customer) req.getSession().getAttribute(REQ_PARAM_CUSTOMER);
+        String prod_id = req.getParameter(REQ_PARAM_ID);
         ServiceProvider.getINSTANCE().getReviewService().add(Review.builder()
                 .title(req.getParameter("title"))
                 .text(req.getParameter("text"))

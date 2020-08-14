@@ -16,6 +16,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static by.epam.pronovich.controller.RequestParameterName.*;
+
 public class ProductInfoChangeForm implements Command {
 
     @Override
@@ -24,9 +26,9 @@ public class ProductInfoChangeForm implements Command {
         Product product = ServiceProvider.getINSTANCE().getProductService().getById(Integer.valueOf(productId));
         List<Catalog> catalogList = ServiceProvider.getINSTANCE().getCatalogService().getAllSubCategory();
         List<Brand> brands = ServiceProvider.getINSTANCE().getBrandService().getAll();
-        req.setAttribute("catalog", catalogList);
-        req.setAttribute("brands", brands);
-        req.setAttribute("product", product);
+        req.setAttribute(REQ_PARAM_CATALOG, catalogList);
+        req.setAttribute(REQ_PARAM_BRANDS, brands);
+        req.setAttribute(REQ_PARAM_PRODUCT, product);
         servletContext.getRequestDispatcher(JspPathUtil.get("change-product-info")).forward(req, resp);
     }
 }

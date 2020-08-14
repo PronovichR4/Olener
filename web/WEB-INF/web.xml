@@ -8,6 +8,57 @@
         <location>/WEB-INF/jsp/error/error.jsp</location>
     </error-page>
 
+<!--    <servlet>-->
+<!--        <display-name>Controller</display-name>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <servlet-class>by.epam.pronovich.controller.Controller</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/olener</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/search</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/registration</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/product</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/productInfo</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/catalog</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/authentication</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/profile</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Controller</servlet-name>-->
+<!--        <url-pattern>/review</url-pattern>-->
+<!--    </servlet-mapping>-->
+
     <servlet>
         <servlet-name>about</servlet-name>
         <jsp-file>/WEB-INF/jsp//about.jsp</jsp-file>

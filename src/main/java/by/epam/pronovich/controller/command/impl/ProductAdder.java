@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.epam.pronovich.controller.RequestParameterName.*;
+
 public class ProductAdder implements Command {
 
     @Override
@@ -23,14 +25,14 @@ public class ProductAdder implements Command {
     private Product getProductWithoutIdFrom(HttpServletRequest req) {
         return Product.builder()
                 .catalog(Catalog.builder()
-                        .id(Integer.valueOf(req.getParameter("catalogId"))).build())
+                        .id(Integer.valueOf(req.getParameter(REQ_PARAM_CATALOG_ID))).build())
                 .brand(Brand.builder()
-                        .id(Integer.valueOf(req.getParameter("brandId"))).build())
-                .model(req.getParameter("model"))
-                .description(req.getParameter("description"))
-                .price(Double.valueOf(req.getParameter("price")))
-                .img(req.getParameter("img"))
-                .quantity(Integer.valueOf(req.getParameter("quantity")))
+                        .id(Integer.valueOf(req.getParameter(REQ_PARAM_BRAND_ID))).build())
+                .model(req.getParameter(REQ_PARAM_MODEL))
+                .description(req.getParameter(REQ_PARAM_DESCRIPTION))
+                .price(Double.valueOf(req.getParameter(REQ_PARAM_PRICE)))
+                .img(req.getParameter(REQ_PARAM_IMAGE))
+                .quantity(Integer.valueOf(req.getParameter(REQ_PARAM_QUANTITY)))
                 .build();
     }
 }

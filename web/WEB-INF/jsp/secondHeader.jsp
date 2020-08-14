@@ -60,7 +60,7 @@
 
     <c:if test="${not empty sessionScope.customer && sessionScope.customer.role.name().equals('ADMIN')}">
         <div style="display: inline; margin-left: 100px">
-            <a style="text-decoration: none" href="/admin-page">
+            <a style="text-decoration: none" href="/adminpage">
                 <button type="submit"
                         style="background: #ffce11; font-family: Verdana ; font-weight: bold;border-radius: 20px;
                     color: black; height: 45px; width: auto; margin-top: auto">

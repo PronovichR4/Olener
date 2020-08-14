@@ -16,7 +16,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="secondHeader.jsp"></jsp:include>
 
-<form action="/admin-page" method="post" style="display: inline">
+<form action="/adminpage" method="post" style="display: inline">
     <button type="submit" name="command" value="add_product_form"
             style="border: 5px solid white; background: #14ad14; color:white;  border-radius: 10px; height: 50px; width: auto;">
         <h2 style="text-align: center; display: inline"><fmt:message key="admin.addProduct"/></h2>

@@ -10,18 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
+
 public class SaveUserChanges implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         Customer customer = getUpdatedCustomerFrom(req);
         ServiceProvider.getINSTANCE().getCustomerService().update(customer);
-        req.getSession().setAttribute("customer", customer);
+        req.getSession().setAttribute(REQ_PARAM_CUSTOMER, customer);
         resp.sendRedirect("/profile");
     }
 
     private Customer getUpdatedCustomerFrom(HttpServletRequest req) {
-        Customer customer = (Customer) req.getSession().getAttribute("customer");
+        Customer customer = (Customer) req.getSession().getAttribute(REQ_PARAM_CUSTOMER);
         return Customer.builder()
                 .login(customer.getLogin())
                 .id(customer.getId())

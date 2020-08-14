@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import static by.epam.pronovich.model.Role.ADMIN;
 
-@WebFilter(servletNames = {"AdminServlet"})
+@WebFilter(urlPatterns = "/adminpage")
 public class AuthorizationFilter implements Filter {
 
     @Override

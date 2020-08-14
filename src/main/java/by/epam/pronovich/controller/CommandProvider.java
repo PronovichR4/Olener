@@ -23,9 +23,10 @@ public class CommandProvider {
         commandBox.put(ADD_PRODUCT, new ProductAdder());
         commandBox.put(CHANGE_PRODUCT_INFO_FORM, new ProductInfoChangeForm());
         commandBox.put(SAVE_PRODUCT_CHANGES, new ProductChangesSaver());
-        commandBox.put(AUTHENTICATION, new Authentication());
-        commandBox.put(REGISTRATION, new Registration());
-        commandBox.put(REVIEW_FORM, new ReviewForm());
+        commandBox.put(AUTHENTICATOR, new Authenticator());
+        commandBox.put(AUTHENTICATION, new AuthenticationFormLoader());
+        commandBox.put(REGISTRATOR, new Registrator());
+        commandBox.put(REVIEW_FORM, new ReviewFormLoader());
         commandBox.put(ADD_REVIEW, new ReviewAdder());
         commandBox.put(CATALOG, new CatalogShower());
         commandBox.put(REVIEW, new ReviewShower());
@@ -40,6 +41,10 @@ public class CommandProvider {
         commandBox.put(UPDATE_STATUS, new StatusUpdating());
         commandBox.put(SHOW_ORDERS, new OrdersShower());
         commandBox.put(SEARCH, new Search());
+        commandBox.put(REGISTRATION, new RegistrationFormLoader());
+        commandBox.put(PROFILE, new ProfileLoader());
+        commandBox.put(BASKET, new BasketLoader());
+        commandBox.put(ADMINPAGE, new AdminPageLoader());
     }
 
 

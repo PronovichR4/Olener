@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_STATUS;
+
 public class StatusUpdating implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         Booking booking = Booking.builder()
-                .bookingStatus(BookingStatus.valueOf(req.getParameter("status")))
+                .bookingStatus(BookingStatus.valueOf(req.getParameter(REQ_PARAM_STATUS)))
                 .id(Integer.valueOf(req.getParameter("bookingId")))
                 .build();
         ServiceProvider.getINSTANCE().getBookingService().update(booking);

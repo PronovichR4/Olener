@@ -58,7 +58,7 @@
                     ${productBooking.booking.bookingStatus.description}
             </th>
             <th>
-                <form action="${pageContext.request.contextPath}/admin-page" method="post">
+                <form action="${pageContext.request.contextPath}/adminpage" method="post">
                     <input type="hidden" name="bookingId" value="${productBooking.booking.id}">
                     <select name="status">
                         <c:forEach var="status" items="${requestScope.status}">

@@ -11,14 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_COUNTER_REVIEW;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PRODUCT;
+
 public class ProductInfoShower implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         String id = req.getParameter("id");
         Product product = ServiceProvider.getINSTANCE().getProductService().getById(Integer.valueOf(id));
-        req.setAttribute("product", product);
-        req.setAttribute("count_review", getCountOfReview(id));
+        req.setAttribute(REQ_PARAM_PRODUCT, product);
+        req.setAttribute(REQ_PARAM_COUNTER_REVIEW, getCountOfReview(id));
         servletContext.getRequestDispatcher(JspPathUtil.get("product-info")).forward(req, resp);
     }
 

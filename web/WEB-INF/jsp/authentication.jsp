@@ -42,7 +42,7 @@
             </label>
         </p>
 
-        <button type="submit" name="command" value="authentication"
+        <button type="submit" name="command" value="authenticator"
                 style="background: green; color: white">
             <fmt:message key="header.signIn"/>
         </button>

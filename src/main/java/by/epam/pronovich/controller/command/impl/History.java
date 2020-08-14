@@ -14,14 +14,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PRODUCT_BOOKINGS;
+
 public class History implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        Customer customer = (Customer) req.getSession().getAttribute("customer");
+        Customer customer = (Customer) req.getSession().getAttribute(REQ_PARAM_CUSTOMER);
         List<Booking> bookingList = ServiceProvider.getINSTANCE().getBookingService().getByCustomer(customer);
         List<ProductBooking> productBookings = ServiceProvider.getINSTANCE().getProductBookingService().getByBookings(bookingList);
-        req.setAttribute("productBookings", productBookings);
+        req.setAttribute(REQ_PARAM_PRODUCT_BOOKINGS, productBookings);
         servletContext.getRequestDispatcher(JspPathUtil.get("history-booking")).forward(req, resp);
     }
 }

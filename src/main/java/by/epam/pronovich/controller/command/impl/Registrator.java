@@ -13,14 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Registration implements Command {
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_LOGIN;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PASSWORD;
 
-    private final Logger logger = LoggerFactory.getLogger(Registration.class);
+public class Registrator implements Command {
+
+    private final Logger logger = LoggerFactory.getLogger(Registrator.class);
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
+        String login = req.getParameter(REQ_PARAM_LOGIN);
+        String password = req.getParameter(REQ_PARAM_PASSWORD);
         if (Validator.validateRegistration(req)) {
             ServiceProvider.getINSTANCE().getCustomerService().registr(login, password);
             logger.info("User " + login + " registrate in system");

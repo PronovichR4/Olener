@@ -52,7 +52,7 @@
         <p style="color: red"> <fmt:message key="${requestScope.checkPassword}"/><p>
         </c:if>
     </p>
-        <button type="submit" name="command" value="registration"
+        <button type="submit" name="command" value="registrator"
                 style="background: green; color: white">
             <fmt:message key="ok"/>
         </button>

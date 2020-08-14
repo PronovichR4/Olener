@@ -12,21 +12,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Authentication implements Command {
+import static by.epam.pronovich.controller.RequestParameterName.*;
 
-    private final Logger logger = LoggerFactory.getLogger(Authentication.class);
+public class Authenticator implements Command {
+
+    private final Logger logger = LoggerFactory.getLogger(Authenticator.class);
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
+        String login = req.getParameter(REQ_PARAM_LOGIN);
+        String password = req.getParameter(REQ_PARAM_PASSWORD);
         Customer customer = ServiceProvider.getINSTANCE().getCustomerService().autorize(login, password);
         if (customer == null) {
             logger.info("No matches for login and password");
             resp.sendRedirect("/authentication");
         } else {
             logger.info(customer.getLogin() + " succesfull login");
-            req.getSession().setAttribute("customer", customer);
+            req.getSession().setAttribute(REQ_PARAM_CUSTOMER, customer);
             resp.sendRedirect("/olener");
         }
     }

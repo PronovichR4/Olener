@@ -2,6 +2,7 @@ package by.epam.pronovich.controller.command;
 
 public enum CommandName {
     WRONG_REQUEST,
+    OLENER,
     LOGOUT,
     USER_CHANGE_INFO_FORM,
     SAVE_USER_CHANGES,
@@ -10,13 +11,15 @@ public enum CommandName {
     SAVE_PRODUCT_CHANGES,
     ADD_PRODUCT,
     AUTHENTICATION,
-    REGISTRATION,
+    AUTHENTICATOR,
+    BASKET,
+    PROFILE,
+    REGISTRATOR,
     REVIEW_FORM,
     ADD_REVIEW,
     CATALOG,
     REVIEW,
     PRODUCTINFO,
-    OLENER,
     PRODUCT,
     LOKALIZATION,
     HISTORY,
@@ -25,5 +28,7 @@ public enum CommandName {
     CHECKOUT,
     UPDATE_STATUS,
     SHOW_ORDERS,
-    SEARCH
+    SEARCH,
+    REGISTRATION,
+    ADMINPAGE
 }

@@ -13,5 +13,7 @@
 <body>
 <jsp:include page="WEB-INF/jsp/header.jsp"></jsp:include>
 <jsp:include page="WEB-INF/jsp/secondHeader.jsp"></jsp:include>
+
+<h1> HELLO !</h1>
 </body>
 </html>

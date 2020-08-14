@@ -84,7 +84,7 @@
     </a>
 
     <c:if test="${not empty sessionScope.customer && sessionScope.customer.role.name().equals('ADMIN')}">
-    <form action="/admin-page" method="post" style="display: inline">
+    <form action="/adminpage" method="post" style="display: inline">
         <input type="hidden" value="${requestScope.product.id}" name="productId">
         <button type="submit" name="command" value="change_product_info_form"
                 style="background: green; border-radius: 10px; color: white; height: 40px; width:auto">

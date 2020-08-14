@@ -1,5 +1,6 @@
 package by.epam.pronovich.controller.command.impl;
 
+import by.epam.pronovich.controller.RequestParameterName;
 import by.epam.pronovich.controller.command.Command;
 import by.epam.pronovich.model.Booking;
 import by.epam.pronovich.model.BookingStatus;
@@ -14,15 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PRODUCT_BOOKINGS;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_STATUS;
+
 public class OrdersShower implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         List<Booking> bookingList = ServiceProvider.getINSTANCE().getBookingService().getAll();
         List<ProductBooking> productBookings = ServiceProvider.getINSTANCE().getProductBookingService().getByBookings(bookingList);
-        req.setAttribute("productBookings", productBookings);
+        req.setAttribute(REQ_PARAM_PRODUCT_BOOKINGS, productBookings);
 
         BookingStatus[] values = BookingStatus.values();
-        req.setAttribute("status", values);
+        req.setAttribute(REQ_PARAM_STATUS, values);
 
         servletContext.getRequestDispatcher(JspPathUtil.get("orders")).forward(req, resp);
     }

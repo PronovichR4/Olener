@@ -15,16 +15,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_BASKET;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
+
 public class Checkout implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Customer customer = (Customer) session.getAttribute("customer");
-        List<Product> basket = (ArrayList<Product>) session.getAttribute("basket");
+        Customer customer = (Customer) session.getAttribute(REQ_PARAM_CUSTOMER);
+        List<Product> basket = (ArrayList<Product>) session.getAttribute(REQ_PARAM_BASKET);
         Booking booking = DAOProvider.getINSTANCE().getBookingDAO().add(customer);
         DAOProvider.getINSTANCE().getProductBookingDAO().add(booking, basket);
-        session.removeAttribute("basket");
+        session.removeAttribute(REQ_PARAM_BASKET);
         resp.sendRedirect("/olener");
     }
 }
