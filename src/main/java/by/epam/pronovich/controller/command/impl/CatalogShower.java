@@ -1,12 +1,10 @@
 package by.epam.pronovich.controller.command.impl;
 
-import by.epam.pronovich.controller.RequestParameterName;
 import by.epam.pronovich.controller.command.Command;
 import by.epam.pronovich.model.Catalog;
 import by.epam.pronovich.service.ServiceProvider;
 import by.epam.pronovich.util.JspPathUtil;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

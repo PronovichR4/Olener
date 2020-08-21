@@ -30,12 +30,14 @@
     </a>
 
     <form action="${pageContext.request.contextPath}/authentication" method="post">
-        <p><span style="color: red; margin: 70px; font-size: x-large"><fmt:message key="form.authentication"/> </span></p>
+        <p><span style="color: red; margin: 70px; font-size: x-large"><fmt:message key="form.authentication"/> </span>
+        </p>
         <p>
             <label><fmt:message key="form.messageLogin"/> <br>
                 <input type="text" name="login" placeholder="login">
             </label>
         </p>
+        <p style="color: red"> ${requestScope.check}</p>
         <p>
             <label><fmt:message key="form.messagePassword"/>
                 <input type="password" name="password" placeholder="password">

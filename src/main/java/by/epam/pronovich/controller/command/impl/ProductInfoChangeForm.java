@@ -7,14 +7,11 @@ import by.epam.pronovich.model.Product;
 import by.epam.pronovich.service.ServiceProvider;
 import by.epam.pronovich.util.JspPathUtil;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 

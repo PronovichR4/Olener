@@ -6,7 +6,6 @@ import by.epam.pronovich.model.Booking;
 import by.epam.pronovich.model.Customer;
 import by.epam.pronovich.model.Product;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

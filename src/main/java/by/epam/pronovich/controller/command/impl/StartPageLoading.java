@@ -5,7 +5,6 @@ import by.epam.pronovich.model.Product;
 import by.epam.pronovich.service.ServiceProvider;
 import by.epam.pronovich.util.JspPathUtil;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -5,7 +5,6 @@ import by.epam.pronovich.model.Booking;
 import by.epam.pronovich.model.BookingStatus;
 import by.epam.pronovich.service.ServiceProvider;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
