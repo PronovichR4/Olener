@@ -18,7 +18,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_BASKET
 public class ToBasketAdder implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer prodId = Integer.valueOf(req.getParameter("productId"));
         HttpSession session = req.getSession();
         List<Product> basket = (ArrayList<Product>) session.getAttribute(REQ_PARAM_BASKET);

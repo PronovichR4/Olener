@@ -15,7 +15,7 @@ public class WrongRequest implements Command {
     Logger logger = LoggerFactory.getLogger(WrongRequest.class);
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.warn("Request with wrong commant parameter");
     }
 }

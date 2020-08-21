@@ -20,7 +20,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PROD_I
 public class FromBasketDeleter implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productId = req.getParameter(REQ_PARAM_PROD_ID);
         HttpSession session = req.getSession();
         List<Product> basket = (ArrayList<Product>) session.getAttribute(REQ_PARAM_BASKET);
@@ -30,6 +30,6 @@ public class FromBasketDeleter implements Command {
             return i;
         });
         req.getSession().setAttribute(REQ_PARAM_BASKET, basket);
-        servletContext.getRequestDispatcher(JspPathUtil.get("basket")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("basket")).forward(req, resp);
     }
 }

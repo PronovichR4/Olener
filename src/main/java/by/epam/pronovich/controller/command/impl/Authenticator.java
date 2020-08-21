@@ -19,7 +19,7 @@ public class Authenticator implements Command {
     private final Logger logger = LoggerFactory.getLogger(Authenticator.class);
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter(REQ_PARAM_LOGIN);
         String password = req.getParameter(REQ_PARAM_PASSWORD);
         Customer customer = ServiceProvider.getINSTANCE().getCustomerService().autorize(login, password);

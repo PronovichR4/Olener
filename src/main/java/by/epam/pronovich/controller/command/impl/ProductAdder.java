@@ -17,7 +17,7 @@ import static by.epam.pronovich.controller.RequestParameterName.*;
 public class ProductAdder implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = ServiceProvider.getINSTANCE().getProductService().save(getProductWithoutIdFrom(req));
         resp.sendRedirect("/productInfo?id=" + product.getId());
     }

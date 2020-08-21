@@ -21,7 +21,7 @@ import static by.epam.pronovich.controller.RequestParameterName.*;
 public class ProductInfoChangeForm implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productId = req.getParameter("productId");
         Product product = ServiceProvider.getINSTANCE().getProductService().getById(Integer.valueOf(productId));
         List<Catalog> catalogList = ServiceProvider.getINSTANCE().getCatalogService().getAllSubCategory();
@@ -29,6 +29,6 @@ public class ProductInfoChangeForm implements Command {
         req.setAttribute(REQ_PARAM_CATALOG, catalogList);
         req.setAttribute(REQ_PARAM_BRANDS, brands);
         req.setAttribute(REQ_PARAM_PRODUCT, product);
-        servletContext.getRequestDispatcher(JspPathUtil.get("change-product-info")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("change-product-info")).forward(req, resp);
     }
 }

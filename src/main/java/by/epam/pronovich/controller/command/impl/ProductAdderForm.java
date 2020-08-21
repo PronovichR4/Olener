@@ -22,11 +22,11 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CATALO
 public class ProductAdderForm implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Catalog> catalogList = ServiceProvider.getINSTANCE().getCatalogService().getAllSubCategory();
         List<Brand> brands = ServiceProvider.getINSTANCE().getBrandService().getAll();
         req.setAttribute(REQ_PARAM_CATALOG, catalogList);
         req.setAttribute(REQ_PARAM_BRANDS, brands);
-        servletContext.getRequestDispatcher(JspPathUtil.get("add-product")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("add-product")).forward(req, resp);
     }
 }

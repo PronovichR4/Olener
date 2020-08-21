@@ -19,7 +19,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
 public class CatalogShower implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Catalog> catalog = null;
         String id = req.getParameter(REQ_PARAM_ID);
         if (id == null) {
@@ -30,7 +30,7 @@ public class CatalogShower implements Command {
         if (catalog.isEmpty()) {
             resp.sendRedirect("/product?categoryId=" + id);
         } else {
-            servletContext.getRequestDispatcher(JspPathUtil.get("catalog")).forward(req, resp);
+            req.getRequestDispatcher(JspPathUtil.get("catalog")).forward(req, resp);
         }
     }
 

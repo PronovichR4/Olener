@@ -18,7 +18,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
 public class ReviewAdder implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Customer cutomer = (Customer) req.getSession().getAttribute(REQ_PARAM_CUSTOMER);
         String prod_id = req.getParameter(REQ_PARAM_ID);
         ServiceProvider.getINSTANCE().getReviewService().add(Review.builder()

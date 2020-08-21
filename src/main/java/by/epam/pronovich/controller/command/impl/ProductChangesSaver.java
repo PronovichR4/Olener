@@ -17,7 +17,7 @@ import static by.epam.pronovich.controller.RequestParameterName.*;
 public class ProductChangesSaver implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Product product = getProductFrom(req);
         ServiceProvider.getINSTANCE().getProductService().update(product);
         resp.sendRedirect("/productInfo?id=" + product.getId());

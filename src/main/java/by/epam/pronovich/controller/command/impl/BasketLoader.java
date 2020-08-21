@@ -12,7 +12,7 @@ import java.io.IOException;
 public class BasketLoader implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        servletContext.getRequestDispatcher(JspPathUtil.get("basket")).forward(req, resp);
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(JspPathUtil.get("basket")).forward(req, resp);
     }
 }

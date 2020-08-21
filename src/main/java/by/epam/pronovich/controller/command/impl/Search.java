@@ -15,10 +15,10 @@ import java.util.List;
 public class Search implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String text = req.getParameter("text");
         List<Product> products = ServiceProvider.getINSTANCE().getProductService().search(text);
         req.setAttribute("products", products);
-        servletContext.getRequestDispatcher(JspPathUtil.get("search")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("search")).forward(req, resp);
     }
 }

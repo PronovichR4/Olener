@@ -15,7 +15,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOM
 public class SaveUserChanges implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Customer customer = getUpdatedCustomerFrom(req);
         ServiceProvider.getINSTANCE().getCustomerService().update(customer);
         req.getSession().setAttribute(REQ_PARAM_CUSTOMER, customer);

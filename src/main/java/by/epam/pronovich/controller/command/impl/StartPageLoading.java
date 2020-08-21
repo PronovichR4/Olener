@@ -18,9 +18,9 @@ public class StartPageLoading implements Command {
     private final int QUANTITY_OF_RANDOM_PRODUCTS_ON_START_PAGE = 8;
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getRandomProducts(req);
-        servletContext.getRequestDispatcher(JspPathUtil.get("start-page")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("start-page")).forward(req, resp);
     }
 
     private void getRandomProducts(HttpServletRequest req) {

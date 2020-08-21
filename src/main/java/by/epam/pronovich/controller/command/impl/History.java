@@ -20,11 +20,11 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PRODUC
 public class History implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Customer customer = (Customer) req.getSession().getAttribute(REQ_PARAM_CUSTOMER);
         List<Booking> bookingList = ServiceProvider.getINSTANCE().getBookingService().getByCustomer(customer);
         List<ProductBooking> productBookings = ServiceProvider.getINSTANCE().getProductBookingService().getByBookings(bookingList);
         req.setAttribute(REQ_PARAM_PRODUCT_BOOKINGS, productBookings);
-        servletContext.getRequestDispatcher(JspPathUtil.get("history-booking")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("history-booking")).forward(req, resp);
     }
 }

@@ -21,7 +21,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOM
 public class Checkout implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute(REQ_PARAM_CUSTOMER);
         List<Product> basket = (ArrayList<Product>) session.getAttribute(REQ_PARAM_BASKET);

@@ -3,7 +3,6 @@ package by.epam.pronovich.controller;
 
 import by.epam.pronovich.controller.command.Command;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,23 +18,21 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContext servletContext = getServletContext();
         getCommandName(req);
-        doAction(req, resp, servletContext);
+        doAction(req, resp);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ServletContext servletContext = getServletContext();
         getCommandName(req);
-        doAction(req, resp, servletContext);
+        doAction(req, resp);
     }
 
-    public void doAction(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void doAction(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String commandName = getCommandName(req);
         Command command = commandProvider.getCommand(commandName);
-        command.execute(req, resp, servletContext);
+        command.execute(req, resp);
     }
 
     private String getCommandName(HttpServletRequest request) {

@@ -21,7 +21,7 @@ public class Registrator implements Command {
     private final Logger logger = LoggerFactory.getLogger(Registrator.class);
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter(REQ_PARAM_LOGIN);
         String password = req.getParameter(REQ_PARAM_PASSWORD);
         if (Validator.validateRegistration(req)) {

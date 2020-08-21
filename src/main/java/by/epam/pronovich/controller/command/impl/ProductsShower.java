@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductsShower implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String categoryId = req.getParameter("categoryId");
         req.setAttribute("categoryId", categoryId);
         if(categoryId!=null){
@@ -24,7 +24,7 @@ public class ProductsShower implements Command {
             products = sort(req, products);
             req.setAttribute("products", products);
         }
-        servletContext.getRequestDispatcher(JspPathUtil.get("product")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("product")).forward(req, resp);
     }
 
     private List<Product> sort(HttpServletRequest req, List<Product> products) {

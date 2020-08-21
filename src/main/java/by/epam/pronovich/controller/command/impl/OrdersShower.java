@@ -20,7 +20,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_STATUS
 
 public class OrdersShower implements Command {
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Booking> bookingList = ServiceProvider.getINSTANCE().getBookingService().getAll();
         List<ProductBooking> productBookings = ServiceProvider.getINSTANCE().getProductBookingService().getByBookings(bookingList);
         req.setAttribute(REQ_PARAM_PRODUCT_BOOKINGS, productBookings);
@@ -28,6 +28,6 @@ public class OrdersShower implements Command {
         BookingStatus[] values = BookingStatus.values();
         req.setAttribute(REQ_PARAM_STATUS, values);
 
-        servletContext.getRequestDispatcher(JspPathUtil.get("orders")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("orders")).forward(req, resp);
     }
 }

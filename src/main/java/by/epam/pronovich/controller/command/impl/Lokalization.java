@@ -13,7 +13,7 @@ import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_LANGUA
 public class Lokalization implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String language = req.getParameter(REQ_PARAM_LANGUAGE);
         req.getSession().setAttribute(REQ_PARAM_LANGUAGE, language);
         resp.sendRedirect(req.getHeader("Referer"));

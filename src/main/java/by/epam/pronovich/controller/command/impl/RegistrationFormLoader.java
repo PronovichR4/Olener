@@ -12,7 +12,7 @@ import java.io.IOException;
 public class RegistrationFormLoader implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws ServletException, IOException {
-        servletContext.getRequestDispatcher(JspPathUtil.get("registration")).forward(req, resp);
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(JspPathUtil.get("registration")).forward(req, resp);
     }
 }

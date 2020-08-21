@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Logout implements Command {
 
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp, ServletContext servletContext) throws SecurityException, IOException {
+    public void execute(HttpServletRequest req, HttpServletResponse resp) throws SecurityException, IOException {
         req.getSession().invalidate();
         resp.sendRedirect("/olener");
     }
