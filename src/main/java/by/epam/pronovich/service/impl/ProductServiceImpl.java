@@ -99,7 +99,7 @@ public class ProductServiceImpl implements ProductService {
     public Product save(Product product) {
         Product result = null;
         try {
-            product = DAOProvider.getINSTANCE().getProductDAO().save(product);
+            result = DAOProvider.getINSTANCE().getProductDAO().save(product);
         } catch (DAOException e) {
             logger.warn("Failed saving product", e);
             throw new ServiceException(e);

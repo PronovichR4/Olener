@@ -30,7 +30,7 @@
         <img src="${pageContext.servletContext.contextPath}/images/logo.jpg" style="margin-top: 20px">
     </a>
 
-    <form action="${pageContext.request.contextPath}/admin-page" method="post">
+    <form action="${pageContext.request.contextPath}/adminpage" method="post">
         <p><span style="color: red; margin: 70px; font-size: x-large"><fmt:message key="form.addProdcut"/> </span></p>
         <p>
             <label> <fmt:message key="form.category"/> <br>

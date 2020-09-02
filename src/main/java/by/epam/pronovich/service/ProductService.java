@@ -1,6 +1,5 @@
 package by.epam.pronovich.service;
 
-import by.epam.pronovich.dao.DAOProvider;
 import by.epam.pronovich.exception.ServiceException;
 import by.epam.pronovich.model.Product;
 

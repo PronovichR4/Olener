@@ -30,7 +30,7 @@
         <img src="${pageContext.servletContext.contextPath}/images/logo.jpg" style="margin-top: 20px">
     </a>
 
-    <form action="${pageContext.request.contextPath}/admin-page" method="post">
+    <form action="${pageContext.request.contextPath}/adminpage" method="post">
         <p><span style="color: red; margin: 70px; font-size: x-large"><fmt:message key="form.changenInfo"/></span></p>
 
         <input type="hidden" value="${requestScope.product.id}" name="productId">
