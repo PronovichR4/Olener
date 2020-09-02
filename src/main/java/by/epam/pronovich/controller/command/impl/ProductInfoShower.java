@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_COUNTER_REVIEW;
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PRODUCT;
+import static by.epam.pronovich.controller.RequestParameterName.*;
 
 public class ProductInfoShower implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String id = req.getParameter(REQ_PARAM_ID);
         Product product = ServiceProvider.getINSTANCE().getProductService().getById(Integer.valueOf(id));
         req.setAttribute(REQ_PARAM_PRODUCT, product);
         req.setAttribute(REQ_PARAM_COUNTER_REVIEW, getCountOfReview(id));

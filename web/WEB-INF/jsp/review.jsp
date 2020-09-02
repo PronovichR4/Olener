@@ -48,7 +48,7 @@
     <c:if test="${not empty sessionScope.customer}">
 
     <form action="/review" method="post" style="display: inline">
-        <input type="hidden" value="${requestScope.prod_id}" name="id">
+        <input type="hidden" value="${requestScope.prodId}" name="id">
         <button type="submit" name="command" value="review_form"
                 style="border: 5px solid white; background: #14ad14; color:white;
                   border-radius: 10px; height: 50px; width: auto;">

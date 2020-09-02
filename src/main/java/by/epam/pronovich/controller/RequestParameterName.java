@@ -26,6 +26,9 @@ public final class RequestParameterName {
     public static final String REQ_PARAM_BRANDS="brands";
     public static final String REQ_PARAM_PRODUCT="product";
     public static final String REQ_PARAM_COUNTER_REVIEW="count_review";
+    public static final String REQ_PARAM_TITLE="title";
+    public static final String REQ_PARAM_TEXT="text";
+    public static final String REQ_PARAM_REVIEWS="reviews";
 
 
 }

@@ -28,7 +28,7 @@
     <form action="${pageContext.request.contextPath}/review" method="post">
         <p><span style="color: blue; margin: 70px; font-size: x-large"><fmt:message key="review.review"/> </span></p>
 
-        <input type="hidden" value="${requestScope.prod_id}" name="id">
+        <input type="hidden" value="${requestScope.prodId}" name="id">
         <p>
             <label><fmt:message key="review.header"/><br>
                 <textarea style="font-size: x-large" cols=40 rows=2 wrap="hard" maxlength=120 name="title" required>

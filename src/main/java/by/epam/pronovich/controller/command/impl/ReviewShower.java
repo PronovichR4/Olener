@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
+import static by.epam.pronovich.controller.RequestParameterName.*;
 
 public class ReviewShower implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter(REQ_PARAM_ID);
-        List<Review> reviews = ServiceProvider.getINSTANCE().getReviewService().getByProductId(Integer.valueOf(id));
-        req.setAttribute("reviews", reviews);
-        req.setAttribute("prod_id", id);
+        String productId = req.getParameter(REQ_PARAM_ID);
+        List<Review> reviews = ServiceProvider.getINSTANCE().getReviewService().getByProductId(Integer.valueOf(productId));
+        req.setAttribute(REQ_PARAM_REVIEWS, reviews);
+        req.setAttribute(REQ_PARAM_PROD_ID, productId);
         req.getRequestDispatcher(JspPathUtil.get("review")).forward(req, resp);
     }
 }
