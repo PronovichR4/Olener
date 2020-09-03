@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 
-public class ProductInfoShower implements Command {
+public class ShowProductInfoCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,10 +1,8 @@
 package by.epam.pronovich.controller.command.impl;
 
 import by.epam.pronovich.controller.command.Command;
-import by.epam.pronovich.dao.DAOProvider;
-import by.epam.pronovich.model.Booking;
-import by.epam.pronovich.model.Customer;
 import by.epam.pronovich.model.Product;
+import by.epam.pronovich.util.JspPathUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,18 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_BASKET;
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PROD_ID;
 
-public class Checkout implements Command {
+public class DeleteFromBasketCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String productId = req.getParameter(REQ_PARAM_PROD_ID);
         HttpSession session = req.getSession();
-        Customer customer = (Customer) session.getAttribute(REQ_PARAM_CUSTOMER);
         List<Product> basket = (ArrayList<Product>) session.getAttribute(REQ_PARAM_BASKET);
-        Booking booking = DAOProvider.getINSTANCE().getBookingDAO().add(customer);
-        DAOProvider.getINSTANCE().getProductBookingDAO().add(booking, basket);
-        session.removeAttribute(REQ_PARAM_BASKET);
-        resp.sendRedirect("/olener");
+        basket.stream().filter(it -> it.getId().equals(Integer.valueOf(productId)))
+                .findFirst().map(i -> {
+            basket.remove(i);
+            return i;
+        });
+        req.getSession().setAttribute(REQ_PARAM_BASKET, basket);
+        req.getRequestDispatcher(JspPathUtil.get("basket")).forward(req, resp);
     }
 }

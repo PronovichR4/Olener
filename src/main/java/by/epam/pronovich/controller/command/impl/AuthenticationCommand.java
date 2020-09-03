@@ -14,9 +14,9 @@ import java.io.IOException;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 
-public class Authenticator implements Command {
+public class AuthenticationCommand implements Command {
 
-    private final Logger logger = LoggerFactory.getLogger(Authenticator.class);
+    private final Logger logger = LoggerFactory.getLogger(AuthenticationCommand.class);
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

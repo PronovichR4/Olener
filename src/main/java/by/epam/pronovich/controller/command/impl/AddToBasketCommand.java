@@ -14,7 +14,7 @@ import java.util.List;
 
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_BASKET;
 
-public class ToBasketAdder implements Command {
+public class AddToBasketCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

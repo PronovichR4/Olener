@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 
-public class ReviewAdder implements Command {
+public class AddReviewCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
 
     private static final CommandProvider commandProvider = CommandProvider.getINSTANCE();
+    private static final int URL_COMMAND=1;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +40,7 @@ public class Controller extends HttpServlet {
         if (command != null) {
             commandName = command;
         } else {
-            commandName = request.getRequestURI().substring(1);
+            commandName = request.getRequestURI().substring(URL_COMMAND);
         }
         return commandName;
     }

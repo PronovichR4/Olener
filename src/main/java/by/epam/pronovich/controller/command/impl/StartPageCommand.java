@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StartPageLoading implements Command {
+public class StartPageCommand implements Command {
     private final int QUANTITY_OF_RANDOM_PRODUCTS_ON_START_PAGE = 8;
 
     @Override

@@ -8,10 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AdminPageLoader implements Command {
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
+import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PROD_ID;
+
+public class AddReviewFormCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspPathUtil.get("admin-page")).forward(req, resp);
+        req.setAttribute(REQ_PARAM_PROD_ID, req.getParameter(REQ_PARAM_ID));
+        req.getRequestDispatcher(JspPathUtil.get("add-review")).forward(req, resp);
     }
 }

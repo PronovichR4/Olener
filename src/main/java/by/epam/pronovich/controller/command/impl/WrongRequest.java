@@ -15,5 +15,6 @@ public class WrongRequest implements Command {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.warn("Request with wrong commant parameter");
+        resp.sendRedirect("olener");
     }
 }

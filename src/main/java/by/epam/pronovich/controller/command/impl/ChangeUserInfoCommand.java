@@ -8,14 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_ID;
-import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PROD_ID;
-
-public class ReviewFormLoader implements Command {
+public class ChangeUserInfoCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute(REQ_PARAM_PROD_ID, req.getParameter(REQ_PARAM_ID));
-        req.getRequestDispatcher(JspPathUtil.get("add-review")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("user-change-info-form")).forward(req, resp);
     }
 }

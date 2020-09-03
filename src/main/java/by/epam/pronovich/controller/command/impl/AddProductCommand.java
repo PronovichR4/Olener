@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 
-public class ProductAdder implements Command {
+public class AddProductCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

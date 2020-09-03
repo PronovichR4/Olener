@@ -15,9 +15,9 @@ import java.io.IOException;
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_LOGIN;
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_PASSWORD;
 
-public class Registrator implements Command {
+public class RegistrationCommand implements Command {
 
-    private final Logger logger = LoggerFactory.getLogger(Registrator.class);
+    private final Logger logger = LoggerFactory.getLogger(RegistrationCommand.class);
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

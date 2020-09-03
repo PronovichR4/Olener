@@ -15,7 +15,7 @@ import java.util.List;
 
 import static by.epam.pronovich.controller.RequestParameterName.*;
 
-public class ProductInfoChangeForm implements Command {
+public class ChangeProductFormCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

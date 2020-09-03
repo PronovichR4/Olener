@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CUSTOMER;
 
-public class SaveUserChanges implements Command {
+public class ChangeUserCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class UserChangeInfoForm implements Command {
+public class AdminPageCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspPathUtil.get("user-change-info-form")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("admin-page")).forward(req, resp);
     }
 }

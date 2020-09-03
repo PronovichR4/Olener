@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class RegistrationFormLoader implements Command {
+public class ProfileCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspPathUtil.get("registration")).forward(req, resp);
+        req.getRequestDispatcher(JspPathUtil.get("profile")).forward(req, resp);
     }
 }

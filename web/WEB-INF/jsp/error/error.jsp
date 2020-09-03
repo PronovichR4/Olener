@@ -12,7 +12,10 @@
 </head>
 <body>
 
-<p> Oooops</p>
+<p>
+<h1>Oooops something was wrong</h1>
+<a href="olener">GO HOME</a>
+</p>
 
 </body>
 </html>

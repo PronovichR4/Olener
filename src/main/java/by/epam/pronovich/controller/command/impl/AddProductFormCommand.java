@@ -15,7 +15,7 @@ import java.util.List;
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_BRANDS;
 import static by.epam.pronovich.controller.RequestParameterName.REQ_PARAM_CATALOG;
 
-public class ProductAdderForm implements Command {
+public class AddProductFormCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
